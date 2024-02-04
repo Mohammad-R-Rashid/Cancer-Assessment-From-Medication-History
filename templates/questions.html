@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical History</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f7ff; /* Light blue background */
+        color: #333; /* Dark text color */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        transition: all 1s ease;
+        font-size: 16px; /* Increased font size */
+    }
+
+    h1 {
+        color: #0080ff; /* Blue header color */
+        text-align: center;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+        font-size: 1.5em; /* Increased font size */
+    }
+
+    label {
+        color: #0080ff; /* Blue label color */
+        transition: all 0.3s ease;
+        font-size: 1.2em; /* Increased font size */
+    }
+
+    input[type="text"],
+    input[type="checkbox"],
+    button {
+        padding: 12px; /* Increased padding */
+        margin: 8px; /* Increased margin */
+        border: 1px solid #0080ff; /* Blue border */
+        border-radius: 8px; /* Increased border radius */
+        transition: all 0.3s ease;
+        font-size: 1em; /* Increased font size */
+    }
+
+    input[type="text"]:focus,
+    button:focus {
+        outline: none;
+        box-shadow: 0 0 8px #0080ff; /* Blue shadow on focus */
+    }
+
+    input[type="submit"] {
+        background-color: #0080ff; /* Blue submit button color */
+        color: white;
+        cursor: pointer;
+        font-size: 1em; /* Increased font size */
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0059b3; /* Darker blue on hover */
+    }
+
+    /* Animation for checkbox and cancer name */
+    #cancerName,
+    input[type="checkbox"] {
+        transition: all 0.3s ease;
+    }
+
+    /* Animation for medication entry */
+    .medicationEntry {
+        transition: all 0.3s ease;
+    }
+</style>
+
+</head>
+<body>
+    <h1>Medical History</h1>
+    <label for="medications">What medications have you taken?</label>
+    
+    <br>
+
+    <form action="/submit" method="post">
+        <div id="medicationContainer">
+            <!-- Medications Input -->
+            <div class="medicationEntry">
+                <input type="text" class="medications" name="medications" list="medicationsList" required>
+            </div>
+        </div>
+
+        <!-- Medications list for autocomplete -->
+        <datalist id="medicationsList">
+            <!-- DrugName options will be dynamically populated here -->
+        </datalist>
+
+        <!-- Checkbox for "Do you have cancer?" -->
+        <br>
+        <input type="checkbox" id="haveCancer" name="haveCancer" onclick="toggleCancerTextBox()">
+        <label for="haveCancer">Do you have cancer?</label>
+        <br>
+
+        <!-- Cancer Name TextBox -->
+        <div id="cancerName" style="display: none;">
+            <!-- Cancer Type Input -->
+            <label for="cancerTypeInput">Cancer Type:</label>
+            <input type="text" id="cancerTypeInput" name="cancerType">
+        </div>
+
+        <!-- Add Another Medication Button -->
+        <button type="button" onclick="addAnotherMedication()">Add Another Medication</button>
+
+        <!-- Submit Button -->
+        <br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        // Fetch drug names from the server
+fetch('/drug_names')
+    .then(response => response.json())
+    .then(data => {
+        // Populate the datalist with DrugName options
+        const medicationsList = document.getElementById('medicationsList');
+        data.forEach(drugName => {
+            const option = document.createElement('option');
+            option.value = drugName;
+            medicationsList.appendChild(option);
+        });
+    })
+    .catch(error => console.error('Error fetching drug names:', error));
+
+    const drugNames = [
+        //these are non-brand names that do not exist in the csv
+    "INSULIN",
+    "BENAZEPRIL",
+    "IRBESARTAN",
+    "VALSARTAN",
+    "BENDROFLUMETHIAZIDE",
+    "ETANERCEPT",
+    "PIOGLITAZONE",
+    "ROSIGLITAZONE",
+    "CYCLOSPORINE",
+    "TACROLIMUS",
+    "SIROLIMUS",
+    "EVEROLIMUS",
+    "MYCOPHENOLATE MOFETIL",
+    "MIZORIBINE",
+    "LEFLUNOMIDE",
+    "AZATHIOPRINE",
+    "ENALAPRIL",
+    "FOSINOPRIL",
+    "LISINOPRIL",
+    "MOEXIPRIL",
+    "PERINDOPRIL",
+    "QUINAPRIL",
+    "RAMIPRIL",
+    "TRANDOLAPRIL",
+    "LOSARTAN",
+    "CANDESARTAN",
+    "HYDROCHLOROTHIAZIDE",
+    "CHLORTALIDONE",
+    "NDAPAMIDE",
+    "INFLIXIMAB",
+    "ADALIMUMAB",
+    "CERTOLIZUMAB PEGOL",
+    "GOLIMUMAB"
+];
+
+
+
+            // Populate the datalist with DrugName options
+            const medicationsList = document.getElementById('medicationsList');
+            drugNames.forEach(drugName => {
+                const option = document.createElement('option');
+                option.value = drugName;
+                medicationsList.appendChild(option);
+            });
+        
+        function addAnotherMedication() {
+            const container = document.getElementById('medicationContainer');
+            const clone = container.lastElementChild.cloneNode(true);
+
+            const clonedMedicationsInput = clone.querySelector('input[name="medications"]');
+            clonedMedicationsInput.value = '';
+
+            const uniqueMedicationsId = 'medications' + Math.floor(Math.random() * 1000);
+            clonedMedicationsInput.id = uniqueMedicationsId;
+
+            container.appendChild(clone);
+        }
+
+        function toggleCancerTextBox() {
+            const haveCancerCheckbox = document.getElementById('haveCancer');
+            const cancerTextBox = document.getElementById('cancerName');
+
+            if (haveCancerCheckbox.checked) {
+                cancerTextBox.style.display = 'block';
+                addBeforeAfterCheckboxes();
+            } else {
+                cancerTextBox.style.display = 'none';
+                removeBeforeAfterCheckboxes();
+            }
+        }
+
+        function addBeforeAfterCheckboxes() {
+            const medicationEntries = document.querySelectorAll('.medicationEntry');
+            medicationEntries.forEach((entry, index) => {
+                const container = document.createElement('div'); // Create a container for medication input and checkbox
+                container.classList.add('medicationContainer'); // Add a class to style the container if needed
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.name = `beforeAfterCancer_${index}`;
+                checkbox.id = `beforeAfterCancer_${index}`;
+
+                const label = document.createElement('label');
+                label.htmlFor = `beforeAfterCancer_${index}`;
+                label.appendChild(document.createTextNode('Prescribed after cancer diagnosis?'));
+
+                container.appendChild(entry.querySelector('input[name="medications"]')); // Move medication input into the container
+                container.appendChild(checkbox);
+                container.appendChild(label);
+
+                entry.appendChild(container);
+                entry.appendChild(document.createElement('br'));
+            });
+        }
+
+        function removeBeforeAfterCheckboxes() {
+            const medicationEntries = document.querySelectorAll('.medicationEntry');
+            medicationEntries.forEach(entry => {
+                const checkboxes = entry.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(checkbox => entry.removeChild(checkbox));
+                const labels = entry.querySelectorAll('label[for^="beforeAfterCancer"]');
+                labels.forEach(label => entry.removeChild(label));
+            });
+        }
+    </script>
+</body>
+</html>

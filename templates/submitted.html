@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medication Risk Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #a0ccff; /* Blue-themed background */
+            color: #000000; /* White text color for better contrast */
+            animation: fadeIn ease 1s; /* Fade in animation */
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            transition: color 0.5s; /* Smooth color transition */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #ffffff; /* White background for table */
+            border-radius: 10px; /* Rounded corners */
+            overflow: hidden; /* Hide overflow content */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+            animation: slideInFromLeft ease 1s; /* Slide in from left animation */
+        }
+        @keyframes slideInFromLeft {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            transition: color 0.5s; /* Smooth color transition */
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        img {
+            display: block;
+            margin: 0 auto; /* Center image */
+            max-width: 100%; /* Ensure image does not exceed container width */
+            animation: slideInFromBottom ease 1s; /* Slide in from bottom animation */
+        }
+        @keyframes slideInFromBottom {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(0); }
+        }
+        #mse-section {
+            text-align: center;
+            margin-top: 20px;
+            animation: fadeIn ease 1s; /* Fade in animation */
+        }
+    </style>
+</head>
+<body>
+    <h1>Medication Risk Results</h1>
+    <table>
+        <tr>
+            <th>Medication</th>
+            <th>Relative Risk</th>
+            <th>Associated Cancer</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result.medication }}</td>
+            <td>{{ "%.3f" % result.relative_risk }}</td>
+            <td>
+                {% if result.associated_cancer %}
+                    {% if result.associated_cancer != "Exact Cancer Unknown" %}
+                        {% for cancer in result.associated_cancer %}
+                            {{ cancer }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        {{ result.associated_cancer }}
+                    {% endif %}
+                {% else %}
+                    Exact Cancer Unknown
+                {% endif %}
+            </td>
+        </tr>
+        
+        {% endfor %}
+    </table>
+    <br />
+    <h2>Machine Learning Performance</h2>
+    <img src="static/predictions_plot.png" alt="Predictions Graph">
+    
+    <div id="mse-section">
+    <p>Mean Squared Error (closer to zero is better): {{ mse_value }}</p>
+    </div>
+</body>
+</html>
