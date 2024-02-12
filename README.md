@@ -26,8 +26,8 @@ Required Extensions and terminal installs:
 10.scipy (run "pip install scipy" in the terminal)
 
 
-Description of each component:
-1. app.py is the master conroller of the program.
+Description of main components:
+1. app.py is the master conroller of the program --- TO RUN THE APP, RUN THIS PAGE IN TERMINAL -----
  It controls the flow of the functions and other pages.
  It also chooses when to run the model and when to display different pages.
 2. calculations.py is responsible for the creation of the translation of the initial_database/InitialDB.sql into a .db file.
