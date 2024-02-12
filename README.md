@@ -36,6 +36,7 @@ Required Extensions and terminal installs:
 
 
 Description of each component:
+
 1.app.py is the master conroller of the program --- TO RUN THE APP, RUN THIS PAGE IN TERMINAL ----- 
 It controls the flow of the functions and other pages. 
 It also chooses when to run the model and when to display different pages.
