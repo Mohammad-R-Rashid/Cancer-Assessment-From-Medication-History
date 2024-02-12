@@ -18,11 +18,17 @@ Required Extensions and terminal installs:
 2. SQLite
 3. SQLite Viewer
 4. SQL Tools
+5. 
 5.pandas (run "pip install pandas" in the terminal)
+
 6.scikit-learn (run "pip install scikit-learn" in the terminal)
+
 7.matplotlib (run "pip install matplotlib" in the terminal)
+
 8.Flask (run "pip install Flask" in the terminal)
+
 9.Flask-SQLAlchemy (run "pip install Flask-SQLAlchemy" in the terminal)
+
 10.scipy (run "pip install scipy" in the terminal)
 
 
