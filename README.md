@@ -15,10 +15,13 @@ How to Run:
 
 Required Extensions and terminal installs:
 1. Python (install both the extention and from the offical website)
+   
 2. SQLite
+   
 3. SQLite Viewer
+   
 4. SQL Tools
-5. 
+
 5.pandas (run "pip install pandas" in the terminal)
 
 6.scikit-learn (run "pip install scikit-learn" in the terminal)
@@ -36,14 +39,19 @@ Description of each component:
 1.app.py is the master conroller of the program --- TO RUN THE APP, RUN THIS PAGE IN TERMINAL ----- 
 It controls the flow of the functions and other pages. 
 It also chooses when to run the model and when to display different pages.
+
 2. calculations.py is responsible for the creation of the translation of the initial_database/InitialDB.sql into a .db file.
  It also calcuates relative risk from collected data to expand upon the initial initial_database.
+
 3. regression_model.py is responsible for control of the regression mode -- both training and testing.
- It also calculates the MSE and displays visuals/graphs in the static folder. 
+ It also calculates the MSE and displays visuals/graphs in the static folder.
+
 4. The instanace folder stores the collected dat in site.db and the translated initial database in relative_risk.db
 
 
 Copyright:
 All code was created orignally. If you want to use or repurpose the porject, please contact me.
+
+
 QUESTION: 
 CONTACT mohammad.rashid7337@gmail.com
