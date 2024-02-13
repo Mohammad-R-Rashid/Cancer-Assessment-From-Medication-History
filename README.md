@@ -10,11 +10,11 @@ More than 50% of diagnosed cancers are detected at a late stage, resulting in po
 
 How to Run:
 1. Download Visual Studio Code
-2. Download all the Required Extentions 
-3. Run the program and open the link in terminal
+2. Download all the Required Extensions 
+3. Run the program and open the link in the terminal
 
 Required Extensions and terminal installs:
-1. Python (install both the extention and from the offical website)
+1. Python (install both the extension and from the official website)
    
 2. SQLite
    
@@ -51,7 +51,7 @@ It also chooses when to run the model and when to display different pages.
 
 
 Copyright:
-All code was created orignally. If you want to use or repurpose the porject, please contact me.
+All code was created originally. If you want to use or repurpose the project, please contact me.
 
 
 QUESTION: 
