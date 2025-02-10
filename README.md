@@ -1,19 +1,18 @@
 
 # RESEARCH PAPER INCLUDED IN REPO: CAML HSEF.PDF
 
-Purpose:
-
+# Abstract
 More than 50% of diagnosed cancers are detected at a late stage, resulting in poor prognosis and high fatality rates (WHO, 2022). Current diagnostic methods necessitate in-person visits or specific test requests, leading to undetected cases until patients see the necessity when they experience health decline. Relatively few standard cancer screening protocols exist, and almost none of them are based on medication exposure history. Our solution, Cancer Assessment by Machine Learning (CAML), plans to revolutionize early detection by fixating on three silos of data: medications taken, associated relative risks, and associated cancers. Certain medications, such as Insulin, have an association with certain cancers, such as pancreatic cancer (De Souza et al., 2016). Other medications, such as tamoxifen, directly increase the risks of cancers due to their active ingredients, such as endometrial cancer (ACOG, 2006). Using an initial database from current research, CAML will leverage specific fields of Artificial Intelligence (AI) to map associations and identify patterns through decision tree regression methods. CAML’s accuracy is then evaluated through error, correlation, and variance calculations. By leveraging this new field in medicine, CAML is envisioned to become a critical tool for medical professionals, predicting relative cancer risks and revolutionizing the early detection of cancers while also adapting to new data.
 
 
 
 
-How to Run:
+# How to Run:
 1. Download Visual Studio Code
 2. Download all the Required Extensions 
 3. Run the program and open the link in the terminal
 
-Required Extensions and terminal installs:
+# Required Extensions and terminal installs:
 1. Python (install both the extension and from the official website)
    
 2. SQLite
@@ -35,9 +34,9 @@ Required Extensions and terminal installs:
 10.scipy (run "pip install scipy" in the terminal)
 
 
-Description of each component:
+# Description of each component:
 
-1.app.py is the master conroller of the program --- TO RUN THE APP, RUN THIS PAGE IN TERMINAL ----- 
+1. app.py is the master conroller of the program --- TO RUN THE APP, RUN THIS PAGE IN TERMINAL ----- 
 It controls the flow of the functions and other pages. 
 It also chooses when to run the model and when to display different pages.
 
@@ -51,5 +50,5 @@ It also chooses when to run the model and when to display different pages.
 
 
 
-QUESTION: 
+# QUESTION: 
 CONTACT mohammad.rashid7337@gmail.com
