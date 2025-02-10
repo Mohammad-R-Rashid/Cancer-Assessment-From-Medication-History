@@ -1,5 +1,5 @@
-Documentation and Notes section
 
+# RESEARCH PAPER INCLUDED IN REPO: CAML HSEF.PDF
 
 Purpose:
 
