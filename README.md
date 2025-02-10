@@ -50,9 +50,6 @@ It also chooses when to run the model and when to display different pages.
 4. The instanace folder stores the collected dat in site.db and the translated initial database in relative_risk.db
 
 
-Copyright:
-All code was created originally. If you want to use or repurpose the project, please contact me.
-
 
 QUESTION: 
 CONTACT mohammad.rashid7337@gmail.com
