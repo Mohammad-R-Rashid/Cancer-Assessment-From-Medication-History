@@ -1,12 +1,12 @@
 # Important
 - This project proposes a concept for a unique approach to cancer detection
-- I did not have enough data to test it properly, but the hope is that the idea can be passed on to benefit other projects
-
+- I do not have enough data to test it properly, but the hope is that the project idea can inspire others to reserach this concept in further detail
+- 
 # RESEARCH PAPER INCLUDED IN REPO: CAML HSEF.PDF
+- CAML HSEF.PDF in repo
 
 # Abstract
 More than 50% of diagnosed cancers are detected at a late stage, resulting in poor prognosis and high fatality rates (WHO, 2022). Current diagnostic methods necessitate in-person visits or specific test requests, leading to undetected cases until patients see the necessity when they experience health decline. Relatively few standard cancer screening protocols exist, and almost none of them are based on medication exposure history. Our solution, Cancer Assessment by Machine Learning (CAML), plans to revolutionize early detection by fixating on three silos of data: medications taken, associated relative risks, and associated cancers. Certain medications, such as Insulin, have an association with certain cancers, such as pancreatic cancer (De Souza et al., 2016). Other medications, such as tamoxifen, directly increase the risks of cancers due to their active ingredients, such as endometrial cancer (ACOG, 2006). Using an initial database from current research, CAML will leverage specific fields of Artificial Intelligence (AI) to map associations and identify patterns through decision tree regression methods. CAML’s accuracy is then evaluated through error, correlation, and variance calculations. By leveraging this new field in medicine, CAML is envisioned to become a critical tool for medical professionals, predicting relative cancer risks and revolutionizing the early detection of cancers while also adapting to new data.
-
 
 
 
