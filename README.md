@@ -1,7 +1,7 @@
 # Important
 - This project proposes a concept for a unique approach to cancer detection
 - I do not have enough data to test it properly, but the hope is that the project idea can inspire others to reserach this concept in further detail
-- 
+  
 # RESEARCH PAPER INCLUDED IN REPO: CAML HSEF.PDF
 - CAML HSEF.PDF in repo
 
